@@ -58,7 +58,7 @@ namespace TrybeHotel.Repository
         // 8. Desenvolva o endpoint DELETE /room/:roomId
         public void DeleteRoom(int RoomId)
         {
-            throw new NotImplementedException();
+             _context.Rooms.Remove(_context.Rooms.Find(RoomId));
         }
     }
 }

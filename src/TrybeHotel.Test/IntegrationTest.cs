@@ -75,4 +75,22 @@ public class IntegrationTest: IClassFixture<WebApplicationFactory<Program>>
         Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
     }
 
+    [Trait("Category", "Rota GET /hotel")]
+    [Theory(DisplayName = "Será validado que a resposta é status 200")]
+    [InlineData("/hotel")]
+    public async Task TestGetHotel(string url)
+    {
+        var response = await _clientTest.GetAsync(url);
+        Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
+    }
+
+    [Trait("Category", "rota GET /room/:hotelId")]
+    [Theory(DisplayName = "Será validado que a resposta é status 200")]
+    [InlineData("/room/1")]
+    public async Task TestGetRoomById(string url)
+    {
+        var response = await _clientTest.GetAsync(url);
+        Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
+    }
+
 }
